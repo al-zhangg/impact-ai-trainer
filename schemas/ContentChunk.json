@@ -1,0 +1,51 @@
+{
+  "name": "ContentChunk",
+  "type": "object",
+  "properties": {
+    "document_id": {
+      "type": "string",
+      "description": "Reference to parent document"
+    },
+    "chunk_index": {
+      "type": "number",
+      "description": "Order index of this chunk"
+    },
+    "original_text": {
+      "type": "string",
+      "description": "Original extracted text"
+    },
+    "summary": {
+      "type": "string",
+      "description": "AI-generated plain language summary"
+    },
+    "training_script": {
+      "type": "string",
+      "description": "AI-generated training script"
+    },
+    "video_url": {
+      "type": "string",
+      "description": "URL to generated video (if available)"
+    },
+    "word_count": {
+      "type": "number",
+      "description": "Word count of original text"
+    },
+    "estimated_duration": {
+      "type": "string",
+      "description": "Estimated reading/viewing time"
+    }
+  },
+  "required": [
+    "document_id",
+    "chunk_index",
+    "original_text"
+  ],
+  "rls": {
+    "read": {
+      "created_by": "{{user.email}}"
+    },
+    "write": {
+      "created_by": "{{user.email}}"
+    }
+  }
+}

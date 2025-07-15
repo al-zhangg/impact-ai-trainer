@@ -1,0 +1,60 @@
+{
+  "name": "Document",
+  "type": "object",
+  "properties": {
+    "title": {
+      "type": "string",
+      "description": "Document title"
+    },
+    "file_url": {
+      "type": "string",
+      "description": "URL to uploaded document"
+    },
+    "file_type": {
+      "type": "string",
+      "enum": [
+        "pdf",
+        "docx",
+        "pptx"
+      ],
+      "description": "Type of uploaded document"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "uploading",
+        "processing",
+        "completed",
+        "error"
+      ],
+      "default": "uploading",
+      "description": "Processing status"
+    },
+    "total_chunks": {
+      "type": "number",
+      "description": "Total number of content chunks"
+    },
+    "processed_chunks": {
+      "type": "number",
+      "default": 0,
+      "description": "Number of processed chunks"
+    },
+    "error_message": {
+      "type": "string",
+      "description": "Error message if processing failed"
+    }
+  },
+  "required": [
+    "title",
+    "file_url",
+    "file_type"
+  ],
+  "rls": {
+    "read": {
+      "created_by": "{{user.email}}"
+    },
+    "write": {
+      "created_by": "{{user.email}}"
+    }
+  }
+}
